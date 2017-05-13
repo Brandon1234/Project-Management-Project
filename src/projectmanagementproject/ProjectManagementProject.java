@@ -3,6 +3,8 @@
   Multiple choice program*/
 package projectmanagementproject;
 
+import java.io.*;
+
 public class ProjectManagementProject extends javax.swing.JFrame {
 
 	/**
@@ -100,6 +102,14 @@ public class ProjectManagementProject extends javax.swing.JFrame {
 		}
 		//</editor-fold>
 
+                try{
+                    FileReader fr = new FileReader("src//Questions.txt");
+                    BufferedReader br = new BufferedReader(fr);
+                }catch(IOException e){
+                    System.out.println(e);
+        }
+                
+                
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
