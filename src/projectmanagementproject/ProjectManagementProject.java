@@ -107,7 +107,7 @@ public class ProjectManagementProject extends javax.swing.JFrame {
 
         try {
             //declares both file and buffered readers
-            FileReader fr = new FileReader("src//Questions.txt");
+            FileReader fr = new FileReader("src\\projectmanagement\\projectQuestions.txt");
             BufferedReader br = new BufferedReader(fr);
             //reads in the question
             question = br.readLine();
