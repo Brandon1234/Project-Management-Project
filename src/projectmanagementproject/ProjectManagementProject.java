@@ -102,7 +102,7 @@ public class ProjectManagementProject extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        String question, ansA, ansB, ansC, ansD;
+        String question, ansA, ansB, ansC, ansD, correctAns;
         MultipleChoice[] questions = new MultipleChoice[10];
 
         try {
@@ -128,6 +128,8 @@ public class ProjectManagementProject extends javax.swing.JFrame {
                         questions[i] = new MultipleChoice(question, false);
                     }
                 }else{
+                    //Reads in the correct answer
+                    correctAns = br.readLine();
                     //reads in all the answers
                     ansA = br.readLine();
                     ansB = br.readLine();
