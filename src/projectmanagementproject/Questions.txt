@@ -1,0 +1,7 @@
+What model, invented by Dr. Winston Royce, do we use to plan programs?
+Ocean Model
+Waterfall Model
+Watering Model
+Cascading Model
+TF When starting a project you should always do your class boxes after the classes are coded.
+F
