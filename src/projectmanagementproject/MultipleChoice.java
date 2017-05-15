@@ -4,27 +4,35 @@
 package projectmanagementproject;
 
 public class MultipleChoice {
-    String ansA, ansB, ansC, ansD;
-    Boolean truefalseAns;
+    String ansA, ansB, ansC, ansD, correct;
+    Boolean trueFalseAns, isTrueFalse = false;
     String question;
     /**
-     * 
-     * @param q
-     * @param a
-     * @param b
-     * @param c
-     * @param d 
+     * Constructor for multiple choice questions that aren't true or false
+     * @param q the question
+     * @param a option a
+     * @param b option b
+     * @param c option c
+     * @param d option d
+     * @param ans the correct option
      */
-    public MultipleChoice(String q, String a, String b, String c, String d){
-        
+    public MultipleChoice(String q, String a, String b, String c, String d, String ans){
+        correct = ans;
+        ansA = a;
+        ansB = b;
+        ansC = c;
+        ansD = d;
+        question = q;
     }
     
     /**
-     * 
+     * Constructor for a true or false questions
      * @param q
-     * @param a 
+     * @param ans 
      */
-    public MultipleChoice(String q, boolean a){
-        
+    public MultipleChoice(String q, boolean ans){
+        question = q;
+        trueFalseAns = ans;
+        isTrueFalse = true;
     }
 }
