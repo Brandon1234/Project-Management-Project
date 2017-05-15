@@ -28,7 +28,14 @@ public class QuizFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rBtnGrpAns = new javax.swing.ButtonGroup();
         btnBack = new javax.swing.JButton();
+        rBtnA = new javax.swing.JRadioButton();
+        rBtnB = new javax.swing.JRadioButton();
+        rBtnC = new javax.swing.JRadioButton();
+        rBtnD = new javax.swing.JRadioButton();
+        txtQuestion = new javax.swing.JLabel();
+        btnAns = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,21 +46,69 @@ public class QuizFrame extends javax.swing.JFrame {
             }
         });
 
+        rBtnGrpAns.add(rBtnA);
+        rBtnA.setText("jRadioButton1");
+
+        rBtnGrpAns.add(rBtnB);
+        rBtnB.setText("jRadioButton2");
+
+        rBtnGrpAns.add(rBtnC);
+        rBtnC.setText("jRadioButton3");
+
+        rBtnGrpAns.add(rBtnD);
+        rBtnD.setText("jRadioButton4");
+
+        txtQuestion.setText("jLabel1");
+
+        btnAns.setText("Select");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(301, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(44, 44, 44))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rBtnC)
+                                .addGap(18, 18, 18)
+                                .addComponent(rBtnD))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rBtnA)
+                                .addGap(18, 18, 18)
+                                .addComponent(rBtnB))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(txtQuestion)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAns)
+                    .addComponent(btnBack))
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(36, 36, 36))
+                .addGap(72, 72, 72)
+                .addComponent(txtQuestion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rBtnA)
+                            .addComponent(rBtnB))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rBtnC)
+                            .addComponent(rBtnD))
+                        .addGap(1, 1, 1)
+                        .addComponent(btnBack)
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAns)
+                        .addContainerGap())))
         );
 
         pack();
@@ -67,6 +122,13 @@ public class QuizFrame extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAns;
     private javax.swing.JButton btnBack;
+    private javax.swing.JRadioButton rBtnA;
+    private javax.swing.JRadioButton rBtnB;
+    private javax.swing.JRadioButton rBtnC;
+    private javax.swing.JRadioButton rBtnD;
+    private javax.swing.ButtonGroup rBtnGrpAns;
+    private javax.swing.JLabel txtQuestion;
     // End of variables declaration//GEN-END:variables
 }
