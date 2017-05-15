@@ -122,32 +122,31 @@ public class ProjectManagementProject extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        String question, ansA, ansB, ansC, ansD, correctAns;
+        String type, question, ansA, ansB, ansC, ansD, correctAns;
         MultipleChoice[] questions = new MultipleChoice[10];
-
+        boolean tfAns;
         try {
             //declares both file and buffered readers
             FileReader fr = new FileReader("src\\projectmanagement\\projectQuestions.txt");
             BufferedReader br = new BufferedReader(fr);
             //reads in the question
-            question = br.readLine();
+            type = br.readLine();
             for (int i = 0; i < 10; i++) {
 
                 //checks to see if the question is a true or false question
-                if (question.contains("TF")) {
-                    //Removes the TF "marker" at the beginning of the question
-                    question = question.substring(2, question.length() - 1);
-                    //reads in the true or false answer
-                    ansA = br.readLine();
-                    //if the anser reads true
-                    if (ansA.equals("T")) {
-                        //creates a new question with the answer set to true
-                        questions[i] = new MultipleChoice(question, true);
-                    } else {
-                        //creates a new question with the answer set to false
-                        questions[i] = new MultipleChoice(question, false);
+                if (type.equals("TF")) {
+                    //get the question
+                    question = br.readLine();
+                    //get the answer, and turn it into a boolean to be passed to the question object
+                    if(br.readLine().equals("T")){
+                        tfAns = true;
+                    }else{
+                        tfAns = false;
                     }
+                    questions[i] = new MultipleChoice(question,tfAns);
                 }else{
+                    //get the question
+                    question = br.readLine();
                     //Reads in the correct answer
                     correctAns = br.readLine();
                     //reads in all the answers
@@ -156,7 +155,7 @@ public class ProjectManagementProject extends javax.swing.JFrame {
                     ansC = br.readLine();
                     ansD = br.readLine();
                     //creates a new question
-                    questions[i] = new MultipleChoice(question, ansA, ansB, ansC, ansD);
+                    questions[i] = new MultipleChoice(question, ansA, ansB, ansC, ansD, correctAns);
                 }
             }
         } catch (IOException e) {
