@@ -4,7 +4,9 @@
 package projectmanagementproject;
 
 public class MultipleChoice {
-    
+    String ansA, ansB, ansC, ansD;
+    Boolean truefalseAns;
+    String question;
     /**
      * 
      * @param q
