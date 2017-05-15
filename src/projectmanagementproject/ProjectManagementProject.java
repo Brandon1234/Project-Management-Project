@@ -34,6 +34,11 @@ public class ProjectManagementProject extends javax.swing.JFrame {
         btnFlash.setText("Flash Cards");
 
         btnQuiz.setText("Quiz Me!");
+        btnQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuizActionPerformed(evt);
+            }
+        });
 
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +81,19 @@ public class ProjectManagementProject extends javax.swing.JFrame {
         //When the exit button is clicked the program exits
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
+        //When the Quiz Me button is pressed
+        
+        //checks to see if the quiz window has been created
+        if(QuizWindow == null){
+            QuizWindow = new QuizFrame(this);
+        }
+        //sets the quiz window to visible
+        QuizWindow.setVisible(true);
+        //hides the main window
+        this.setVisible(false);
+    }//GEN-LAST:event_btnQuizActionPerformed
 
     /**
      * @param args the command line arguments
