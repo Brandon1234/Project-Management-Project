@@ -1,8 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/* Brandon Lit
+ * 2017-05-15
+ * This is the frame for the quiz*/
 package projectmanagementproject;
 
 /**
@@ -11,12 +9,14 @@ package projectmanagementproject;
  */
 public class QuizFrame extends javax.swing.JFrame {
     ProjectManagementProject MainWindow;
+    MultipleChoice[] questions;
     /**
      * Creates new form QuizFrame
      */
-    public QuizFrame(ProjectManagementProject m) {
+    public QuizFrame(ProjectManagementProject m, MultipleChoice[] q) {
         initComponents();
         MainWindow = m;
+        questions = q;
     }
 
     /**
@@ -61,6 +61,11 @@ public class QuizFrame extends javax.swing.JFrame {
         txtQuestion.setText("jLabel1");
 
         btnAns.setText("Select");
+        btnAns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +124,10 @@ public class QuizFrame extends javax.swing.JFrame {
         this.setVisible(false);
         MainWindow.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnsActionPerformed
+        //When the Select answer button is pressed
+    }//GEN-LAST:event_btnAnsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
