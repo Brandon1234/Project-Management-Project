@@ -7,6 +7,8 @@ import java.io.*;
 
 public class ProjectManagementProject extends javax.swing.JFrame {
 
+    private QuizFrame QuizWindow; 
+    
     /**
      * Creates new form ProjectManagementProject
      */
