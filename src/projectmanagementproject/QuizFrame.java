@@ -170,7 +170,7 @@ public class QuizFrame extends javax.swing.JFrame {
 
     private void btnAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnsActionPerformed
         //When the Select answer button is pressed
-        
+
         if (rBtnA.isSelected() && questions[currentIndex].getMCAnswer().equals("A")) {
             answer = true;
         } else if (rBtnB.isSelected() && questions[currentIndex].getMCAnswer().equals("B")) {
@@ -195,18 +195,51 @@ public class QuizFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         displayQuestions(count);
-        if (count < 10) {
+        if (count < indexes.length) {
             count++;
         }
     }//GEN-LAST:event_btnNextActionPerformed
+
+    /**
+     * 
+     */
+    private void randomQuestion() {
+        //creates a boolean and integer to keep track of whether or not the question has been picked
+        boolean isNew = false;
+        int index = 0;
+        //generates a random number between zero and the number of questions
+        currentIndex = (int) (Math.random() * indexes.length);
+        //for teh number of questions
+        for (int i = 0; i < indexes.length; i++) {
+            //checks to see if the indexes match
+            if (currentIndex == indexes[i]) {
+                //if they match set the boolean to true
+                isNew = true;
+                //set the indec to the value of i
+                index = i;
+            }
+            System.out.println(indexes[i]);
+        }
+        //if the number was new
+        if (isNew) {
+            //"removes" the number at that index
+            indexes[index] = -1;
+        } else {
+            //if it wasn't generate a new random number
+            randomQuestion();
+        }
+    }
+
     /**
      * display the question
      */
     private void displayQuestions(int count) {
+        //runs the random question method
+        randomQuestion();
         //display the question in the appropriate place
-        txtQuestion.setText(questions[count].getQuestion());
+        txtQuestion.setText(questions[currentIndex].getQuestion());
         //if it is a true or false question
-        if (questions[count].isTrueFalse) {
+        if (questions[currentIndex].isTrueFalse) {
             //disable 2 of the radio buttons so that the user cant select them
             rBtnC.setEnabled(false);
             rBtnD.setEnabled(false);
@@ -219,10 +252,10 @@ public class QuizFrame extends javax.swing.JFrame {
             rBtnC.setEnabled(true);
             rBtnD.setEnabled(true);
             //display all of the answers
-            rBtnA.setText(questions[count].getAnswerA());
-            rBtnB.setText(questions[count].getAnswerB());
-            rBtnC.setText(questions[count].getAnswerC());
-            rBtnD.setText(questions[count].getAnswerD());
+            rBtnA.setText(questions[currentIndex].getAnswerA());
+            rBtnB.setText(questions[currentIndex].getAnswerB());
+            rBtnC.setText(questions[currentIndex].getAnswerC());
+            rBtnD.setText(questions[currentIndex].getAnswerD());
         }
     }
 
