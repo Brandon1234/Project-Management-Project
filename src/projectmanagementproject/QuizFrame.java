@@ -20,14 +20,10 @@ public class QuizFrame extends javax.swing.JFrame {
         initComponents();
         MainWindow = m;
         questions = q;
-<<<<<<< HEAD
-        
-=======
         indexes = new int[questions.length];
         for (int j = 0; j < indexes.length; j++) {
             indexes[j] = j;
         }
->>>>>>> origin/Using-text-files-for-questions
     }
 
     /**
