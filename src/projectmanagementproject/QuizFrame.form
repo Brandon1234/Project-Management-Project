@@ -42,12 +42,15 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="rBtnB" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="lblQNum" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Component id="txtQuestion" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblQNum" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="50" max="32767" attributes="0"/>
@@ -86,14 +89,14 @@
                           <Component id="btnNext" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblQNum" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnAns" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnAns" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblQNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -166,7 +169,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblQNum">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="You have answered 0 of 10 questions"/>
       </Properties>
     </Component>
   </SubComponents>

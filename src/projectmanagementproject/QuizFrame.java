@@ -88,7 +88,7 @@ public class QuizFrame extends javax.swing.JFrame {
             }
         });
 
-        lblQNum.setText("jLabel1");
+        lblQNum.setText("You have answered 0 of 10 questions");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,11 +106,13 @@ public class QuizFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(rBtnA)
                                 .addGap(18, 18, 18)
-                                .addComponent(rBtnB))
-                            .addComponent(lblQNum)))
+                                .addComponent(rBtnB))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(txtQuestion)))
+                        .addComponent(txtQuestion))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblQNum)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -139,12 +141,12 @@ public class QuizFrame extends javax.swing.JFrame {
                             .addComponent(rBtnD)
                             .addComponent(btnNext))
                         .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBack)
-                            .addComponent(lblQNum))
+                        .addComponent(btnBack)
                         .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnAns)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAns)
+                            .addComponent(lblQNum))
                         .addContainerGap())))
         );
 
