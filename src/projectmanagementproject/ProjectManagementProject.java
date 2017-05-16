@@ -130,9 +130,9 @@ public class ProjectManagementProject extends javax.swing.JFrame {
             FileReader fr = new FileReader("src\\projectmanagementproject\\Questions.txt");
             BufferedReader br = new BufferedReader(fr);
             //reads in the question
-            type = br.readLine();
+            
             for (int i = 0; i < 10; i++) {
-
+                type = br.readLine();
                 //checks to see if the question is a true or false question
                 if (type.equals("TF")) {
                     //get the question
