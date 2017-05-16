@@ -192,30 +192,20 @@ public class QuizFrame extends javax.swing.JFrame {
     /**
      * display the question
      */
-<<<<<<< HEAD
     private void displayQuestions(int count){
         //display the question in the appropriate place
         txtQuestion.setText(questions[count].getQuestion());
         //if it is a true or false question
         if(questions[count].isTrueFalse){
             //disable 2 of the radio buttons so that the user cant select them
-=======
-    private void displayQuestions(int count) {
-        txtQuestion.setText(questions[count].getQuestion());
-        if (questions[count].isTrueFalse) {
->>>>>>> origin/Using-text-files-for-questions
             rBtnC.setEnabled(false);
             rBtnD.setEnabled(false);
             //set the other 2 buttons to say true or false
             rBtnA.setText("TRUE");
             rBtnB.setText("FALSE");
-<<<<<<< HEAD
             //if its not true or false
         }else{
             //enable the other 2 buttons just incase the last question was true or false
-=======
-        } else {
->>>>>>> origin/Using-text-files-for-questions
             rBtnC.setEnabled(true);
             rBtnD.setEnabled(true);
             //display all of the answers
