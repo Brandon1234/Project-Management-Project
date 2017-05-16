@@ -193,7 +193,7 @@ public class QuizFrame extends javax.swing.JFrame {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-
+        btnNext.setText("Next Question");
         displayQuestions(count);
         if (count < indexes.length) {
             count++;
