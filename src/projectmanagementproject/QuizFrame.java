@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public class QuizFrame extends javax.swing.JFrame {
 
-    int count = 0;
+    int count = 0, correctAns = 0;
     ProjectManagementProject MainWindow;
     MultipleChoice[] questions;
     int[] indexes;
@@ -181,6 +181,8 @@ public class QuizFrame extends javax.swing.JFrame {
         if (answer) {//if the question was answered correctly
             //sets the background colour of the question to green
             txtQuestion.setBackground(Color.green);
+            //increments the number of correct answers 
+            correctAns += 1;
         } else {//if the question was answered incorrectly
             //sets the background colour to red
             txtQuestion.setBackground(Color.red);
@@ -191,10 +193,13 @@ public class QuizFrame extends javax.swing.JFrame {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
         btnNext.setText("Next Question");
+        txtQuestion.setBackground(Color.white);
         displayQuestions(count);
         if (count < indexes.length) {
             count++;
         }
+        System.out.println(((correctAns / count) * 100));
+        lblQNum.setText("You have answered " + count + " out of 10 questions and gotten " + ((correctAns / count) * 100) + "% correct");
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void rBtnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rBtnDActionPerformed
@@ -222,7 +227,6 @@ public class QuizFrame extends javax.swing.JFrame {
             if (indexes[i] == -1) {
                 baseCase += 1;
             }
-            System.out.println(indexes[i]);
         }
 
         if (baseCase == indexes.length) {
