@@ -170,22 +170,25 @@ public class QuizFrame extends javax.swing.JFrame {
 
     private void btnAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnsActionPerformed
         //When the Select answer button is pressed
-
-        if (rBtnA.isSelected() && questions[currentIndex].getMCAnswer().equals("A")) {
-            answer = true;
-        } else if (rBtnB.isSelected() && questions[currentIndex].getMCAnswer().equals("B")) {
-            answer = true;
-        } else if (rBtnC.isSelected() && questions[currentIndex].getMCAnswer().equals("C")) {
-            answer = true;
-        } else if (rBtnD.isSelected() && questions[currentIndex].getMCAnswer().equals("D")) {
-            answer = true;
-        } else {
-            answer = false;
+        //checks to see if the correct answer was selected
+        if (rBtnA.isSelected() && questions[currentIndex].getMCAnswer().equals("A")) {//if the answer is A and A is selected
+            answer = true;//sets the answer boolean to true
+        } else if (rBtnB.isSelected() && questions[currentIndex].getMCAnswer().equals("B")) {//if the answer is B and B is selected
+            answer = true;//sets the answer boolean to true
+        } else if (rBtnC.isSelected() && questions[currentIndex].getMCAnswer().equals("C")) {//if the answer is C and C is selected
+            answer = true;//sets the answer boolean to true
+        } else if (rBtnD.isSelected() && questions[currentIndex].getMCAnswer().equals("D")) {//if the answer is D and D is selected
+            answer = true;//sets the answer boolean to true
+        } else {//if the correct answer was NOT selected
+            answer = false;//sets the answer boolean to false
         }
-
-        if (answer) {
+        
+        //checks to see if the correct answer was chosen (answer is true)
+        if (answer) {//if the question was answered correctly
+            //sets the background colour of the question to green
             txtQuestion.setBackground(Color.green);
-        } else {
+        } else {//if the question was answered incorrectly
+            //sets the background colour to red
             txtQuestion.setBackground(Color.red);
         }
 
