@@ -50,13 +50,13 @@ public class FlashWindow extends javax.swing.JFrame {
 			//check if data exists in array
 			if (cards.length <= 0) {
 				//no data
-				throw new IOException();
+				throw new NullPointerException();
 			}
 			//otherwise data has been successfully stored
 			//display first flash card
 			update();
-		} catch (IOException e) {
-			System.err.println(e);
+		} catch (NullPointerException | IOException e) {
+			e.printStackTrace();
 			//display error, disable nav buttons
 			btnFirst.setEnabled(false);
 			btnLast.setEnabled(false);
