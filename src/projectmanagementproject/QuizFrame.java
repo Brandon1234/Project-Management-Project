@@ -81,7 +81,7 @@ public class QuizFrame extends javax.swing.JFrame {
             }
         });
 
-        btnNext.setText("Next Question");
+        btnNext.setText("Start Quiz!");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -118,7 +118,7 @@ public class QuizFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblQNum)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,12 +201,12 @@ public class QuizFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNextActionPerformed
 
     /**
-     * 
+     *
      */
     private void randomQuestion() {
         //creates a boolean and integer to keep track of whether or not the question has been picked
         boolean isNew = false;
-        int index = 0;
+        int index = 0, baseCase = 0;
         //generates a random number between zero and the number of questions
         currentIndex = (int) (Math.random() * indexes.length);
         //for teh number of questions
@@ -218,15 +218,24 @@ public class QuizFrame extends javax.swing.JFrame {
                 //set the indec to the value of i
                 index = i;
             }
+            if (indexes[i] == -1) {
+                baseCase += 1;
+            }
             System.out.println(indexes[i]);
         }
-        //if the number was new
-        if (isNew) {
-            //"removes" the number at that index
-            indexes[index] = -1;
+
+        if (baseCase == indexes.length) {
+            btnAns.setEnabled(false);
+            btnNext.setEnabled(false);
         } else {
-            //if it wasn't generate a new random number
-            randomQuestion();
+            //if the number was new
+            if (isNew) {
+                //"removes" the number at that index
+                indexes[index] = -1;
+            } else {
+                //if it wasn't generate a new random number
+                randomQuestion();
+            }
         }
     }
 
