@@ -1,9 +1,11 @@
 /*A Karapostolakis, B Lit, G Smith
- 2017-05-12
- Multiple choice program*/
+  2017-05-15
+  Multiple choice program*/
 package projectmanagementproject;
 
 public class ProjectManagementProject extends javax.swing.JFrame {
+
+	private FlashWindow flashWindow;
 
 	/**
 	 * Creates new form ProjectManagementProject
@@ -88,7 +90,14 @@ public class ProjectManagementProject extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuizActionPerformed
 
     private void btnFlashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlashActionPerformed
-		// TODO add your handling code here:
+		//only create a flash card window if one does not already exist
+		if (flashWindow == null) {
+			flashWindow = new FlashWindow(this);
+		}
+		//show flash card window
+		flashWindow.setVisible(true);
+		//hide main window
+		this.setVisible(false);
     }//GEN-LAST:event_btnFlashActionPerformed
 
 	/**
