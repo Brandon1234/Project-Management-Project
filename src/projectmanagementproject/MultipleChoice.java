@@ -72,7 +72,7 @@ public class MultipleChoice {
     }
     /**
      * accessor to get the correct answer to a multiple choice question
-     * @return a string containing a, b, c, or d
+     * @return a string containing A, B, C, or D
      */
     public String getMCAnswer(){
         return correct;

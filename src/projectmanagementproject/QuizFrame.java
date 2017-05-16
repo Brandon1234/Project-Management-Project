@@ -11,11 +11,13 @@ import java.util.Set;
  * @author Brandon
  */
 public class QuizFrame extends javax.swing.JFrame {
+
     int count = 0;
     ProjectManagementProject MainWindow;
     MultipleChoice[] questions;
     int[] indexes;
     boolean answer;
+    int currentIndex = 0;
 
     /**
      * Creates new form QuizFrame
@@ -168,30 +170,30 @@ public class QuizFrame extends javax.swing.JFrame {
 
     private void btnAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnsActionPerformed
         //When the Select answer button is pressed
-        for (int i = 0; i < questions.length; i++) {
-            if (rBtnA.isSelected() && questions[i].getMCAnswer().equals("A")) {
-                answer = true;
-            } else if (rBtnB.isSelected() && questions[i].getMCAnswer().equals("B")) {
-                answer = true;
-            } else if (rBtnC.isSelected() && questions[i].getMCAnswer().equals("C")) {
-                answer = true;
-            } else if (rBtnD.isSelected() && questions[i].getMCAnswer().equals("D")) {
-                answer = true;
-            }else{
-                answer = false;
-            }
-
-            if(answer){
-                txtQuestion.setBackground(Color.green);
-            }else{
-                txtQuestion.setBackground(Color.red);
-            }
+        
+        if (rBtnA.isSelected() && questions[currentIndex].getMCAnswer().equals("A")) {
+            answer = true;
+        } else if (rBtnB.isSelected() && questions[currentIndex].getMCAnswer().equals("B")) {
+            answer = true;
+        } else if (rBtnC.isSelected() && questions[currentIndex].getMCAnswer().equals("C")) {
+            answer = true;
+        } else if (rBtnD.isSelected() && questions[currentIndex].getMCAnswer().equals("D")) {
+            answer = true;
+        } else {
+            answer = false;
         }
+
+        if (answer) {
+            txtQuestion.setBackground(Color.green);
+        } else {
+            txtQuestion.setBackground(Color.red);
+        }
+
     }//GEN-LAST:event_btnAnsActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        
+
         displayQuestions(count);
         if (count < 10) {
             count++;
@@ -200,11 +202,11 @@ public class QuizFrame extends javax.swing.JFrame {
     /**
      * display the question
      */
-    private void displayQuestions(int count){
+    private void displayQuestions(int count) {
         //display the question in the appropriate place
         txtQuestion.setText(questions[count].getQuestion());
         //if it is a true or false question
-        if(questions[count].isTrueFalse){
+        if (questions[count].isTrueFalse) {
             //disable 2 of the radio buttons so that the user cant select them
             rBtnC.setEnabled(false);
             rBtnD.setEnabled(false);
@@ -212,7 +214,7 @@ public class QuizFrame extends javax.swing.JFrame {
             rBtnA.setText("TRUE");
             rBtnB.setText("FALSE");
             //if its not true or false
-        }else{
+        } else {
             //enable the other 2 buttons just incase the last question was true or false
             rBtnC.setEnabled(true);
             rBtnD.setEnabled(true);
