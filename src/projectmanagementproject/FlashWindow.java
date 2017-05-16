@@ -8,17 +8,21 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
+ * Reads in flash cards and presents them to the user.
  *
  * @author andrew
  */
 public class FlashWindow extends javax.swing.JFrame {
 
-	ProjectManagementProject mainWindow;
-	int currentIndex;
-	String[] cards;
+	private ProjectManagementProject mainWindow;
+	private int currentIndex;
+	private String[] cards;
 
 	/**
-	 * Creates new form Quiz
+	 * Creates new form FlashWindow.
+	 * <p>
+	 * The FlashWindow window allows the user to browse the contents of the
+	 * flash cards located in {@code FlashData.txt}.
 	 *
 	 * @param m The main window of the application
 	 */
@@ -28,7 +32,7 @@ public class FlashWindow extends javax.swing.JFrame {
 		currentIndex = 0;
 		//read flash card info from data file
 		try {
-			BufferedReader file = new BufferedReader(new FileReader("src/projectmanagementproject/FlashData.txt"));
+			BufferedReader file = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("FlashData.txt")));
 			//read each line as a single flash card, add to arraylist
 			List<String> cardsIn = new ArrayList<>();
 			boolean eof = false;
@@ -63,7 +67,9 @@ public class FlashWindow extends javax.swing.JFrame {
 		}
 	}
 
-	//refresh the display
+	/**
+	 * Refreshes the flash card display area.
+	 */
 	private void update() {
 		//check if any students exist
 		if (cards.length > 0) {
