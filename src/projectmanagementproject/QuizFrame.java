@@ -3,6 +3,9 @@
  * This is the frame for the quiz*/
 package projectmanagementproject;
 
+import java.awt.Color;
+import java.util.Set;
+
 /**
  *
  * @author Brandon
@@ -12,6 +15,7 @@ public class QuizFrame extends javax.swing.JFrame {
     ProjectManagementProject MainWindow;
     MultipleChoice[] questions;
     int[] indexes;
+    boolean answer;
 
     /**
      * Creates new form QuizFrame
@@ -44,6 +48,7 @@ public class QuizFrame extends javax.swing.JFrame {
         txtQuestion = new javax.swing.JLabel();
         btnAns = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
+        lblQNum = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +72,7 @@ public class QuizFrame extends javax.swing.JFrame {
         rBtnD.setText("jRadioButton4");
 
         txtQuestion.setText("jLabel1");
+        txtQuestion.setOpaque(true);
 
         btnAns.setText("Select");
         btnAns.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +87,8 @@ public class QuizFrame extends javax.swing.JFrame {
                 btnNextActionPerformed(evt);
             }
         });
+
+        lblQNum.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,7 +106,8 @@ public class QuizFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(rBtnA)
                                 .addGap(18, 18, 18)
-                                .addComponent(rBtnB))))
+                                .addComponent(rBtnB))
+                            .addComponent(lblQNum)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(txtQuestion)))
@@ -130,7 +139,9 @@ public class QuizFrame extends javax.swing.JFrame {
                             .addComponent(rBtnD)
                             .addComponent(btnNext))
                         .addGap(1, 1, 1)
-                        .addComponent(btnBack)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBack)
+                            .addComponent(lblQNum))
                         .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnAns)
@@ -149,14 +160,23 @@ public class QuizFrame extends javax.swing.JFrame {
     private void btnAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnsActionPerformed
         //When the Select answer button is pressed
         for (int i = 0; i < questions.length; i++) {
-            if (rBtnA.isSelected() && questions[i].getMCAnswer().equals("A")) {
-
+            /*if (rBtnA.isSelected() && questions[i].getMCAnswer().equals("A")) {
+                answer = true;
             } else if (rBtnB.isSelected() && questions[i].getMCAnswer().equals("B")) {
-
-            }else if (rBtnC.isSelected() && questions[i].getMCAnswer().equals("C")) {
-
-            }else if (rBtnD.isSelected() && questions[i].getMCAnswer().equals("D")) {
-
+                answer = true;
+            } else if (rBtnC.isSelected() && questions[i].getMCAnswer().equals("C")) {
+                answer = true;
+            } else if (rBtnD.isSelected() && questions[i].getMCAnswer().equals("D")) {
+                answer = true;
+            }else{
+                answer = false;
+            }
+            */
+            answer = false;
+            if(answer){
+                txtQuestion.setBackground(Color.green);
+            }else{
+                txtQuestion.setBackground(Color.red);
             }
         }
     }//GEN-LAST:event_btnAnsActionPerformed
@@ -165,27 +185,37 @@ public class QuizFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         displayQuestions(count);
-        if(count < 10){
-            count ++;
+        if (count < 10) {
+            count++;
         }
     }//GEN-LAST:event_btnNextActionPerformed
     /**
      * display the question
      */
+<<<<<<< HEAD
     private void displayQuestions(int count){
         //display the question in the appropriate place
         txtQuestion.setText(questions[count].getQuestion());
         //if it is a true or false question
         if(questions[count].isTrueFalse){
             //disable 2 of the radio buttons so that the user cant select them
+=======
+    private void displayQuestions(int count) {
+        txtQuestion.setText(questions[count].getQuestion());
+        if (questions[count].isTrueFalse) {
+>>>>>>> origin/Using-text-files-for-questions
             rBtnC.setEnabled(false);
             rBtnD.setEnabled(false);
             //set the other 2 buttons to say true or false
             rBtnA.setText("TRUE");
             rBtnB.setText("FALSE");
+<<<<<<< HEAD
             //if its not true or false
         }else{
             //enable the other 2 buttons just incase the last question was true or false
+=======
+        } else {
+>>>>>>> origin/Using-text-files-for-questions
             rBtnC.setEnabled(true);
             rBtnD.setEnabled(true);
             //display all of the answers
@@ -200,6 +230,7 @@ public class QuizFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAns;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnNext;
+    private javax.swing.JLabel lblQNum;
     private javax.swing.JRadioButton rBtnA;
     private javax.swing.JRadioButton rBtnB;
     private javax.swing.JRadioButton rBtnC;
