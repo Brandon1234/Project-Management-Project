@@ -12,11 +12,12 @@ import java.util.Set;
  */
 public class QuizFrame extends javax.swing.JFrame {
 
-    int count = 0, correctAns = 0;
+    int count = 0;
+    double correctAns = 0;
     ProjectManagementProject MainWindow;
     MultipleChoice[] questions;
     int[] indexes;
-    boolean answer;
+    boolean answer, started = false;
     int currentIndex = 0;
 
     /**
@@ -164,19 +165,28 @@ public class QuizFrame extends javax.swing.JFrame {
 
     private void btnAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnsActionPerformed
         //When the Select answer button is pressed
-        //checks to see if the correct answer was selected
-        if (rBtnA.isSelected() && questions[currentIndex].getMCAnswer().equals("A")) {//if the answer is A and A is selected
-            answer = true;//sets the answer boolean to true
-        } else if (rBtnB.isSelected() && questions[currentIndex].getMCAnswer().equals("B")) {//if the answer is B and B is selected
-            answer = true;//sets the answer boolean to true
-        } else if (rBtnC.isSelected() && questions[currentIndex].getMCAnswer().equals("C")) {//if the answer is C and C is selected
-            answer = true;//sets the answer boolean to true
-        } else if (rBtnD.isSelected() && questions[currentIndex].getMCAnswer().equals("D")) {//if the answer is D and D is selected
-            answer = true;//sets the answer boolean to true
-        } else {//if the correct answer was NOT selected
-            answer = false;//sets the answer boolean to false
+        if (questions[currentIndex].isTrueFalse) {
+            if (rBtnA.isSelected() && questions[currentIndex].getTFAnswer()) {//if true was selected and the answer is true
+                answer = true;//sets the answer boolean to true
+            } else if (rBtnB.isSelected() && !questions[currentIndex].getTFAnswer()) {//if false was selected and the answer is false
+                answer = true;//sets the answer boolean to true
+            } else {//if the correct answer was NOT selected
+                answer = false;//sets the answer boolean to false
+            }
+        } else {//if it is a regular multiple choice question
+            //checks to see if the correct answer was selected
+            if (rBtnA.isSelected() && questions[currentIndex].getMCAnswer().equals("A")) {//if the answer is A and A is selected
+                answer = true;//sets the answer boolean to true
+            } else if (rBtnB.isSelected() && questions[currentIndex].getMCAnswer().equals("B")) {//if the answer is B and B is selected
+                answer = true;//sets the answer boolean to true
+            } else if (rBtnC.isSelected() && questions[currentIndex].getMCAnswer().equals("C")) {//if the answer is C and C is selected
+                answer = true;//sets the answer boolean to true
+            } else if (rBtnD.isSelected() && questions[currentIndex].getMCAnswer().equals("D")) {//if the answer is D and D is selected
+                answer = true;//sets the answer boolean to true
+            } else {//if the correct answer was NOT selected
+                answer = false;//sets the answer boolean to false
+            }
         }
-        
         //checks to see if the correct answer was chosen (answer is true)
         if (answer) {//if the question was answered correctly
             //sets the background colour of the question to green
@@ -188,17 +198,20 @@ public class QuizFrame extends javax.swing.JFrame {
             txtQuestion.setBackground(Color.red);
         }
 
+        btnAns.setEnabled(false);
+
     }//GEN-LAST:event_btnAnsActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
         btnNext.setText("Next Question");
+        btnAns.setEnabled(true);
         txtQuestion.setBackground(Color.white);
         displayQuestions(count);
-        if (count < indexes.length) {
+        if (count < indexes.length && started == true) {
             count++;
         }
-        System.out.println(((correctAns / count) * 100));
+        started = true;
         lblQNum.setText("You have answered " + count + " out of 10 questions and gotten " + ((correctAns / count) * 100) + "% correct");
     }//GEN-LAST:event_btnNextActionPerformed
 
@@ -215,7 +228,7 @@ public class QuizFrame extends javax.swing.JFrame {
         int index = 0, baseCase = 0;
         //generates a random number between zero and the number of questions
         currentIndex = (int) (Math.random() * indexes.length);
-        //for teh number of questions
+        //for the number of questions
         for (int i = 0; i < indexes.length; i++) {
             //checks to see if the indexes match
             if (currentIndex == indexes[i]) {
