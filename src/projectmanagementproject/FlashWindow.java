@@ -5,6 +5,7 @@ package projectmanagementproject;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -48,6 +49,8 @@ public class FlashWindow extends javax.swing.JFrame {
 				throw new IOException();
 			}
 			//otherwise data has been successfully stored
+			//display first flash card
+			update();
 		} catch (IOException e) {
 			System.err.println(e);
 			//display error, disable nav buttons
@@ -57,6 +60,35 @@ public class FlashWindow extends javax.swing.JFrame {
 			btnNext.setEnabled(false);
 			btnRand.setEnabled(false);
 			txtDisplay.setText("Flash card data missing or empty");
+		}
+	}
+
+	//refresh the display
+	private void update() {
+		//check if any students exist
+		if (cards.length > 0) {
+			//display current flash card
+			txtDisplay.setText("Study hint " + (currentIndex + 1) + ":\n" + cards[currentIndex]);
+			//check if at beginning of array
+			if (currentIndex == 0) {
+				//gray out 'previous' buttons
+				btnFirst.setEnabled(false);
+				btnPrev.setEnabled(false);
+			} else {
+				btnFirst.setEnabled(true);
+				btnPrev.setEnabled(true);
+			}
+
+			//check if at end of array
+			if (currentIndex == cards.length - 1) {
+				//gray out 'next' buttons
+				btnLast.setEnabled(false);
+				btnNext.setEnabled(false);
+			} else {
+				btnLast.setEnabled(true);
+				btnNext.setEnabled(true);
+			}
+
 		}
 	}
 
@@ -95,14 +127,39 @@ public class FlashWindow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtDisplay);
 
         btnFirst.setText("<<");
+        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstActionPerformed(evt);
+            }
+        });
 
         btnPrev.setText("<");
+        btnPrev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrevActionPerformed(evt);
+            }
+        });
 
         btnNext.setText(">");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
 
         btnLast.setText(">>");
+        btnLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLastActionPerformed(evt);
+            }
+        });
 
         btnRand.setText("Random");
+        btnRand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRandActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,6 +208,36 @@ public class FlashWindow extends javax.swing.JFrame {
 		//hide main window
 		this.setVisible(false);
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+		//move to beginning of array
+		currentIndex = 0;
+		update();
+    }//GEN-LAST:event_btnFirstActionPerformed
+
+    private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
+		//decrement array index
+		currentIndex--;
+		update();
+    }//GEN-LAST:event_btnPrevActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+		//increment array index
+		currentIndex++;
+		update();
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
+		//move to end of array
+		currentIndex = cards.length - 1;
+		update();
+    }//GEN-LAST:event_btnLastActionPerformed
+
+    private void btnRandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRandActionPerformed
+		//set array index to random number
+		currentIndex = ThreadLocalRandom.current().nextInt(cards.length);
+		update();
+    }//GEN-LAST:event_btnRandActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFirst;
