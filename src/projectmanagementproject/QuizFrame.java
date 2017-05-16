@@ -169,7 +169,7 @@ public class QuizFrame extends javax.swing.JFrame {
     private void btnAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnsActionPerformed
         //When the Select answer button is pressed
         for (int i = 0; i < questions.length; i++) {
-            /*if (rBtnA.isSelected() && questions[i].getMCAnswer().equals("A")) {
+            if (rBtnA.isSelected() && questions[i].getMCAnswer().equals("A")) {
                 answer = true;
             } else if (rBtnB.isSelected() && questions[i].getMCAnswer().equals("B")) {
                 answer = true;
@@ -180,8 +180,7 @@ public class QuizFrame extends javax.swing.JFrame {
             }else{
                 answer = false;
             }
-            */
-            answer = false;
+
             if(answer){
                 txtQuestion.setBackground(Color.green);
             }else{
