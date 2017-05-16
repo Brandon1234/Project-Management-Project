@@ -17,6 +17,7 @@ public class QuizFrame extends javax.swing.JFrame {
         initComponents();
         MainWindow = m;
         questions = q;
+        
     }
 
     /**
@@ -36,6 +37,7 @@ public class QuizFrame extends javax.swing.JFrame {
         rBtnD = new javax.swing.JRadioButton();
         txtQuestion = new javax.swing.JLabel();
         btnAns = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +69,13 @@ public class QuizFrame extends javax.swing.JFrame {
             }
         });
 
+        btnNext.setText("Next Question");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,18 +96,23 @@ public class QuizFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(txtQuestion)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAns)
-                    .addComponent(btnBack))
-                .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAns)
+                            .addComponent(btnBack))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnNext)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(txtQuestion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -107,7 +121,8 @@ public class QuizFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rBtnC)
-                            .addComponent(rBtnD))
+                            .addComponent(rBtnD)
+                            .addComponent(btnNext))
                         .addGap(1, 1, 1)
                         .addComponent(btnBack)
                         .addGap(36, 36, 36))
@@ -129,10 +144,34 @@ public class QuizFrame extends javax.swing.JFrame {
         //When the Select answer button is pressed
     }//GEN-LAST:event_btnAnsActionPerformed
 
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+        int count = 0;
+        displayQuestions(count);
+        if(count < 10){
+            count ++;
+        }
+    }//GEN-LAST:event_btnNextActionPerformed
+    /**
+     * display the question
+     */
+    private void displayQuestions(int count){
+        txtQuestion.setText(questions[count].getQuestion());
+        if(questions[count].isTrueFalse){
+            rBtnC.setEnabled(false);
+            rBtnD.setEnabled(false);
+            rBtnA.setText("TRUE");
+            rBtnB.setText("FALSE");
+        }else{
+            rBtnC.setEnabled(true);
+            rBtnD.setEnabled(true);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAns;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnNext;
     private javax.swing.JRadioButton rBtnA;
     private javax.swing.JRadioButton rBtnB;
     private javax.swing.JRadioButton rBtnC;
