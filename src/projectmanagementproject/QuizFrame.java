@@ -45,10 +45,11 @@ public class QuizFrame extends javax.swing.JFrame {
         rBtnB = new javax.swing.JRadioButton();
         rBtnC = new javax.swing.JRadioButton();
         rBtnD = new javax.swing.JRadioButton();
-        txtQuestion = new javax.swing.JLabel();
         btnAns = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         lblQNum = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtQuestion = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,9 +72,6 @@ public class QuizFrame extends javax.swing.JFrame {
         rBtnGrpAns.add(rBtnD);
         rBtnD.setText("jRadioButton4");
 
-        txtQuestion.setText("jLabel1");
-        txtQuestion.setOpaque(true);
-
         btnAns.setText("Select");
         btnAns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,11 +88,19 @@ public class QuizFrame extends javax.swing.JFrame {
 
         lblQNum.setText("You have answered 0 of 10 questions");
 
+        jScrollPane1.setEnabled(false);
+
+        txtQuestion.setEditable(false);
+        txtQuestion.setColumns(20);
+        txtQuestion.setLineWrap(true);
+        txtQuestion.setRows(5);
+        jScrollPane1.setViewportView(txtQuestion);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -108,12 +114,9 @@ public class QuizFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(rBtnB))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(txtQuestion))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblQNum)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,13 +126,17 @@ public class QuizFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnNext)
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(txtQuestion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -222,12 +229,13 @@ public class QuizFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAns;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnNext;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblQNum;
     private javax.swing.JRadioButton rBtnA;
     private javax.swing.JRadioButton rBtnB;
     private javax.swing.JRadioButton rBtnC;
     private javax.swing.JRadioButton rBtnD;
     private javax.swing.ButtonGroup rBtnGrpAns;
-    private javax.swing.JLabel txtQuestion;
+    private javax.swing.JTextArea txtQuestion;
     // End of variables declaration//GEN-END:variables
 }
