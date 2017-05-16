@@ -124,6 +124,7 @@ public class FlashWindow extends javax.swing.JFrame {
         txtDisplay.setColumns(20);
         txtDisplay.setLineWrap(true);
         txtDisplay.setRows(5);
+        txtDisplay.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtDisplay);
 
         btnFirst.setText("<<");
