@@ -8,6 +8,7 @@ import java.io.*;
 public class ProjectManagementProject extends javax.swing.JFrame {
 
     private QuizFrame QuizWindow; 
+    static MultipleChoice[] questions = new MultipleChoice[10];
     
     /**
      * Creates new form ProjectManagementProject
@@ -87,7 +88,7 @@ public class ProjectManagementProject extends javax.swing.JFrame {
         
         //checks to see if the quiz window has been created
         if(QuizWindow == null){
-            QuizWindow = new QuizFrame(this);
+            QuizWindow = new QuizFrame(this, questions);
         }
         //sets the quiz window to visible
         QuizWindow.setVisible(true);
@@ -123,7 +124,6 @@ public class ProjectManagementProject extends javax.swing.JFrame {
         //</editor-fold>
 
         String type, question, ansA, ansB, ansC, ansD, correctAns;
-        MultipleChoice[] questions = new MultipleChoice[10];
         boolean tfAns;
         try {
             //declares both file and buffered readers

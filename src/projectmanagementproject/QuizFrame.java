@@ -8,8 +8,11 @@ package projectmanagementproject;
  * @author Brandon
  */
 public class QuizFrame extends javax.swing.JFrame {
+
     ProjectManagementProject MainWindow;
     MultipleChoice[] questions;
+    int[] indexes;
+
     /**
      * Creates new form QuizFrame
      */
@@ -17,6 +20,10 @@ public class QuizFrame extends javax.swing.JFrame {
         initComponents();
         MainWindow = m;
         questions = q;
+        indexes = new int[questions.length];
+        for (int j = 0; j < indexes.length; j++) {
+            indexes[j] = j;
+        }
     }
 
     /**
@@ -127,6 +134,17 @@ public class QuizFrame extends javax.swing.JFrame {
 
     private void btnAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnsActionPerformed
         //When the Select answer button is pressed
+        for (int i = 0; i < questions.length; i++) {
+            if (rBtnA.isSelected() && questions[i].getMCAnswer().equals("A")) {
+
+            } else if (rBtnB.isSelected() && questions[i].getMCAnswer().equals("B")) {
+
+            }else if (rBtnC.isSelected() && questions[i].getMCAnswer().equals("C")) {
+
+            }else if (rBtnD.isSelected() && questions[i].getMCAnswer().equals("D")) {
+
+            }
+        }
     }//GEN-LAST:event_btnAnsActionPerformed
 
 
