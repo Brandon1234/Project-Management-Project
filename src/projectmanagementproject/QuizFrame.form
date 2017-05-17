@@ -127,9 +127,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Option D"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rBtnDActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAns">
       <Properties>
