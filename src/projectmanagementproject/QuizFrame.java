@@ -10,13 +10,20 @@ import java.awt.Color;
  * @author Brandon
  */
 public class QuizFrame extends javax.swing.JFrame {
-
+        //variable declarations
+        //number of questions the user has answered
 	int count = 0;
+        //number of answers the user has gotten correct
 	double correctAns = 0;
+        //the main window
 	ProjectManagementProject MainWindow;
+        //array to hold the questions
 	MultipleChoice[] questions;
+        //keeps track of which questions have been used, for the randomizer
 	int[] indexes;
+        //true or false answer, if the user has started the quiz
 	boolean answer, started = false;
+        //which question is being displayed
 	int currentIndex = 0;
 
 	/**
@@ -199,14 +206,21 @@ public class QuizFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnsActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-		btnNext.setText("Next Question");
+		//change the text from start quiz to next question
+                btnNext.setText("Next Question");
+                //let the user choose their question
 		btnAns.setEnabled(true);
+                //reset the background colour
 		txtQuestion.setBackground(Color.white);
+                //show the question
 		displayQuestions();
+                //keep moving throught eh questions, as long as all of them haven't been answered
 		if (count < indexes.length && started == true) {
 			count++;
 		}
+                //know that the user has started the quiz
 		started = true;
+                //display the percentages and questions answered
 		lblQNum.setText("You have answered " + count + " out of 10 questions and gotten " + ((correctAns / count) * 100) + "% correct");
     }//GEN-LAST:event_btnNextActionPerformed
 
