@@ -1,4 +1,4 @@
-/* Brandon Lit
+/* Brandon Lit, Garrett Smith
  * 2017-05-15
  * This is the frame for the quiz*/
 package projectmanagementproject;

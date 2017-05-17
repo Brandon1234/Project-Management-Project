@@ -1,4 +1,4 @@
-/* Brandon Lit
+/* Brandon Lit, Garrett Smith
  * 2017-05-12
  * This is the multiple choice class which will be used for all questions*/
 package projectmanagementproject;
