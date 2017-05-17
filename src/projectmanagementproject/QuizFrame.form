@@ -39,10 +39,10 @@
                                   <Component id="rBtnC" min="-2" max="-2" attributes="0"/>
                                   <Component id="rBtnA" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="rBtnD" min="-2" max="-2" attributes="0"/>
                                   <Component id="rBtnB" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rBtnD" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -53,7 +53,7 @@
                           <Component id="btnBack" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" pref="375" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="626" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

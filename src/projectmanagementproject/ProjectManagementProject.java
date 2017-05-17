@@ -34,6 +34,7 @@ public class ProjectManagementProject extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Menu");
+        setResizable(false);
 
         btnFlash.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnFlash.setText("Flash Cards");
