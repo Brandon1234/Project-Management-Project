@@ -3,8 +3,12 @@
   Multiple choice program*/
 package projectmanagementproject;
 
+import java.io.*;
+
 public class ProjectManagementProject extends javax.swing.JFrame {
 
+	private QuizFrame QuizWindow;
+	private static MultipleChoice[] questions = new MultipleChoice[10];
 	private FlashWindow flashWindow;
 
 	/**
@@ -86,7 +90,16 @@ public class ProjectManagementProject extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuizActionPerformed
-		// TODO add your handling code here:
+		//When the Quiz Me button is pressed
+
+		//checks to see if the quiz window has been created
+		if (QuizWindow == null) {
+			QuizWindow = new QuizFrame(this, questions);
+		}
+		//sets the quiz window to visible
+		QuizWindow.setVisible(true);
+		//hides the main window
+		this.setVisible(false);
     }//GEN-LAST:event_btnQuizActionPerformed
 
     private void btnFlashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlashActionPerformed
@@ -126,6 +139,44 @@ public class ProjectManagementProject extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(ProjectManagementProject.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
 		//</editor-fold>
+
+		String type, question, ansA, ansB, ansC, ansD, correctAns;
+		boolean tfAns;
+		try {
+			//gets location of question file
+			BufferedReader br = new BufferedReader(new InputStreamReader(ProjectManagementProject.class.getResourceAsStream("Questions.txt")));
+			//reads in the question
+
+			for (int i = 0; i < 10; i++) {
+				type = br.readLine();
+				//checks to see if the question is a true or false question
+				if (type.equals("TF")) {
+					//get the question
+					question = br.readLine();
+					//get the answer, and turn it into a boolean to be passed to the question object
+					if (br.readLine().equals("T")) {
+						tfAns = true;
+					} else {
+						tfAns = false;
+					}
+					questions[i] = new MultipleChoice(question, tfAns);
+				} else {
+					//get the question
+					question = br.readLine();
+					//Reads in the correct answer
+					correctAns = br.readLine();
+					//reads in all the answers
+					ansA = br.readLine();
+					ansB = br.readLine();
+					ansC = br.readLine();
+					ansD = br.readLine();
+					//creates a new question
+					questions[i] = new MultipleChoice(question, ansA, ansB, ansC, ansD, correctAns);
+				}
+			}
+		} catch (IOException | NullPointerException e) {
+			System.out.println(e);
+		}
 
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {

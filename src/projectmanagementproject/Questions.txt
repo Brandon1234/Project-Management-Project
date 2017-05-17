@@ -1,0 +1,54 @@
+MC
+What model, invented by Dr. Winston Royce, do we use to plan programs?
+B
+Ocean Model
+Waterfall Model
+Watering Model
+Cascading Model
+TF
+When starting a project you should always do your class boxes after the classes are coded.
+F
+TF
+Analysts are a part of a system.
+T
+MC
+Which of the following is NOT a measurement of success
+C
+The project is scalable
+There is a support system
+The project can't be maintained
+The client is happy
+MC
+What does SDLC stand for?
+A
+Software Development Life Cycle
+Software Decision Life Cycle
+Setup Decision Loading Core
+Simple Development Learning Curve
+MC
+What is the first phase in the SDLC we learned about?
+D
+Implementation
+Integration
+Design
+Problem Statement
+TF
+It is the most costly to fix a mistake if you find it at the start of the SDLC
+F
+MC
+Who invented the chart we use to keep track of progress in different areas of a project?
+B
+Henry Ford
+Henry Gantt
+J Edgar Hoover
+Dwight Eisenhower
+MC
+What does UML stand for?
+C
+United Meeting Location
+Unlimited Messaging Load
+Unified Modeling Language
+Urgent Messaging Language
+TF
+The SDLC is limited to the programmers directly involved with the project
+F
