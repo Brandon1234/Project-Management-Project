@@ -1,6 +1,6 @@
-/*A Karapostolakis
-  2017-05-15
-  Window for the flash card viewer*/
+/* A Karapostolakis
+ * 2017-05-16
+ * Window for the flash card viewer*/
 package projectmanagementproject;
 
 import java.io.*;

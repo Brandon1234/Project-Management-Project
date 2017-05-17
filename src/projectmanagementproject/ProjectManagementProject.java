@@ -1,6 +1,6 @@
-/*A Karapostolakis, B Lit, G Smith
-  2017-05-15
-  Multiple choice program*/
+/* A Karapostolakis, B Lit, G Smith
+ * 2017-05-16
+ * Multiple choice program*/
 package projectmanagementproject;
 
 import java.io.*;
