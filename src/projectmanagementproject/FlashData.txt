@@ -1,0 +1,10 @@
+A system is a combination of software and hardware that provides a solution for a business problem.
+A system involves clients, analysts, designers, developers, testers, users, and more.
+Success can be measured based on the following questions: Does it solve the problem? Is it easy to maintain? Is it scalable? Is there a support system in place? Was it delivered on time? Was the client happy with the results?
+Computer scientists have created a view of the software development process known as the ‘software development life cycle’ (SDLC).
+One SDLC method is known as the waterfall method, where a mistake in one phase requires the developer to go back and redo some work from a previous phase.
+The waterfall method was developed by Dr. Winston Royce in 1970, based on his experience making software for spacecraft missions. It consists of various phases: Problem Statement, Analysis, Design, Implementation, Integration/Test, and Maintenance.
+Mistakes found early in the SDLC are much less expensive to correct than those found late.
+One method used to keep track of progress is called the Gantt Chart, and was developed by an engineer called Henry Gantt.
+Gantt Charts are typically used by people working on a large project, such as the Hoover Dam, and the Eisenhower National Defense Interstate Highway System.
+Unified Modeling Language, or UML visually specifies parts of a system, and makes it much easier to describe complex software designs.

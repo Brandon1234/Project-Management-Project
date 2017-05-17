@@ -1,6 +1,6 @@
 /*A Karapostolakis, B Lit, G Smith
- 2017-05-12
- Multiple choice program*/
+  2017-05-15
+  Multiple choice program*/
 package projectmanagementproject;
 
 import java.io.*;
@@ -9,6 +9,7 @@ public class ProjectManagementProject extends javax.swing.JFrame {
 
 	private QuizFrame QuizWindow;
 	private static MultipleChoice[] questions = new MultipleChoice[10];
+	private FlashWindow flashWindow;
 
 	/**
 	 * Creates new form ProjectManagementProject
@@ -33,6 +34,11 @@ public class ProjectManagementProject extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnFlash.setText("Flash Cards");
+        btnFlash.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFlashActionPerformed(evt);
+            }
+        });
 
         btnQuiz.setText("Quiz Me!");
         btnQuiz.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +101,17 @@ public class ProjectManagementProject extends javax.swing.JFrame {
 		//hides the main window
 		this.setVisible(false);
     }//GEN-LAST:event_btnQuizActionPerformed
+
+    private void btnFlashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlashActionPerformed
+		//only create a flash card window if one does not already exist
+		if (flashWindow == null) {
+			flashWindow = new FlashWindow(this);
+		}
+		//show flash card window
+		flashWindow.setVisible(true);
+		//hide main window
+		this.setVisible(false);
+    }//GEN-LAST:event_btnFlashActionPerformed
 
 	/**
 	 * @param args the command line arguments
